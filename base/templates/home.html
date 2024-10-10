@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .home-container{
+        width: 60%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .topic-post {
+        padding-bottom: 20px;
+    }
+
+    .topic-container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        
+    }
+    
+    .topic-host {
+        color: rgb(107 114 128);
+    }
+
+    .input-field {
+        width: 60%;
+        height: 5vh;
+        border-radius: 3px;
+        background-color: #262626;
+        border: 1px dotted rgb(107 114 128);
+        color: #bebebe;
+        
+    }
+
+    
+
+    .input-button {
+        background-color: rgb(107 114 128);;
+        color: #1a1a1a;
+        height: 5vh;
+    }
+    
+</style>
+<div class="home-container">
+    
+    {% if request.user.is_authenticated %}
+    <h3 class="welcome-msg">Hey {{request.user}}!!</h3>
+    {% else %}
+    <h3 class="welcome-msg">Hey Wanderer!!</h3>
+    {% endif %}
+    <div class="topic-post">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Share your thoughts.." name="topic" class="input-field">
+            <input type="submit" value="Post" class="input-button">
+        </form>
+    </div>
+    {% for topic in topics %}
+    
+    <div class="topic-container">
+        <a href="{% url 'topic' topic.id %}">
+            <p class="topics">{{ topic.topic }}</p>
+        </a>
+        <span class="topic-host">{{topic.host}}</span>
+        
+    </div>
+    {% endfor %}
+</div>
+<script>
+   
+</script>
+
+{% endblock content %}

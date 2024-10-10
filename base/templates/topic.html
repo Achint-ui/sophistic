@@ -1,0 +1,91 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .topic-container{
+        width: 60%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        font-size: 16px;
+        color: rgb(156 163 175);
+    }
+
+    .topic-body {
+        margin-bottom: 50px;
+    }
+
+    .comment-field {
+        width: 60%;
+        height: 5vh;
+        border-radius: 3px;
+        background-color: #262626;
+        border: 1px dotted rgb(107 114 128);
+        color: #bebebe;
+        margin-bottom: 20px;
+    }
+
+    .comment-container {
+        background-color: #262626;
+        color: #bebebe;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+
+    .comment-container span {
+        font-size: 12px;
+        margin-left: 5px;
+        color: rgb(107 114 128);
+    }
+
+    .comment-container p {
+        margin-top: 5px;
+        padding-bottom: 12px;
+        margin-left: 10px;
+    }
+
+    hr {
+        margin-bottom: 30px;
+        border: 1px dotted rgb(107 114 128);;
+    }
+</style>
+<div class="topic-container">
+    <div class="topic-body">
+
+    
+    <h2>{{topic.topic}}</h2>
+    <pre>{{message.content}}</pre>
+    </div>
+    
+    <!--
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+    </form>
+-->
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="body" placeholder="Comment here..." class="comment-field">
+    </form>
+    <hr>
+    {% for comment in topic_comments %}
+    <div class="comment-container">
+        <span>@{{comment.user}}</span>
+        <p>
+            {{ comment.body }}
+        </p>
+    </div>
+    
+     
+    {% endfor %}
+    
+   
+</div>
+<script>
+   
+    
+</script>
+{% endblock %}

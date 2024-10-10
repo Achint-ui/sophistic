@@ -1,0 +1,28 @@
+body {
+    background-color: #1a1a1a;
+    color: #bebebe;
+    font-family: 'JetBrains Mono';
+    
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #bebebe;
+}
+
+a:visited {
+    color: #bebebe;
+}
+  
+a:hover {
+    color: #bebebe;
+}
+  
+a:active {
+    color: #bebebe;
+}

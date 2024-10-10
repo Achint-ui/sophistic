@@ -1,0 +1,25 @@
+<style>
+   .navbar {
+      padding-left: 20px;
+      padding-right: 20px;
+      display: flex;
+      justify-content: space-between;
+   }
+
+   
+</style>
+<div class="navbar">
+    <div>
+        <a href="/">
+            <h1>sophistic</h1>
+        </a>
+    </div>
+    <div>
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'logout' %}"><span>Logout</span></a>
+
+        {% else %} 
+        <a href="{% url 'login' %}"><span>Login</span></a>
+        {% endif %}
+    </div>
+</div>
