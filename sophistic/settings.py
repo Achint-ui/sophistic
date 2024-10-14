@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-seg9^li&&tl06f$5%z0+wj=wy@x@g$4_pevgro3remzwu^+mv3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["sophistic-3.onrender.com"]
 
 
 # Application definition
